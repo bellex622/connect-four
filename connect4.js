@@ -109,6 +109,7 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
+  alert(msg)
 }
 
 /** handleClick: handle click of column top to play piece */
@@ -134,9 +135,15 @@ function handleClick(evt) {
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
+  //check if every cell is !== null
+  if(board.every(row => row.every(cell => cell !== null))){
+    return endGame('Tie!!')
+  }
 
   // switch players
   // TODO: switch currPlayer 1 <-> 2
+  currPlayer = currPlayer === 1 ? 2 : 1 ;
+  
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
